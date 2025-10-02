@@ -1,7 +1,7 @@
 # 马头市区
 ## 团队LOGO :pencil2:
 
-![IGtheshy](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/logo.png "马头")
+![IGtheshy](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/TeamLogo.jpg "马头")
 
 **创作理念**
 
