@@ -1,8 +1,6 @@
 # 马头市区
 ## 团队LOGO
 
-由于还没想好LOGO，先上一张大马头代替
-
 ![IGtheshy](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/logo.png "马头")
 
 ## 团队介绍
