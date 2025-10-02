@@ -1,5 +1,5 @@
 # 马头市区
-## :pencil2团队LOGO :
+## :pencil2:团队LOGO :
 
 ![IGtheshy](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/TeamLogo.jpg "马头")
 
