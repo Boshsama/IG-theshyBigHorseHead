@@ -1,5 +1,5 @@
 # 马头市区
-## 团队LOGO :pencil2:
+## :pencil2团队LOGO :
 
 ![IGtheshy](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/TeamLogo.jpg "马头")
 
@@ -7,7 +7,7 @@
 
 以马头作为主体，以简单黑白简笔画为形式。马到成功，头角峥嵘，大道至简。
 
-## 团队介绍 :pencil2:
+##  :pencil2:团队介绍
 ### 看到这个队名，你可能会觉得“我怎么看不懂？” :speech_balloon:
 
 马头，即电竞项目英雄联盟中国战队IG担任上单位置的选手**theshy**，因其俊俏的脸庞获此称号。
@@ -40,6 +40,6 @@
 
 得出结论，**马头市区**。:sparkles:
 
-## 成员介绍 :pencil2:
+## pencil2:成员介绍 :
 
 
