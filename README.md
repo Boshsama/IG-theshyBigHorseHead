@@ -3,6 +3,10 @@
 
 ![IGtheshy](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/logo.png "马头")
 
+**创作理念**
+
+以马头作为主体，以简单黑白简笔画为形式。马到成功，头角峥嵘，大道至简。
+
 ## 团队介绍
 ### 看到这个队名，你可能会觉得“我怎么看不懂？”
 
