@@ -1,12 +1,17 @@
 # 马头市区
-## 团队LOGO
+## :pencil2:团队LOGO :
 
-由于还没想好LOGO，先上一张大马头代替
+![IGtheshy](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/TeamLogo.jpg "马头")
 
-![IGtheshy](https://ts1.tc.mm.bing.net/th/id/R-C.1c285e2f4f6ee53b7152b4a8d7a67c8a?rik=MagZJBz8eAw7AQ&riu=http%3a%2f%2finews.gtimg.com%2fnewsapp_match%2f0%2f3948769816%2f0&ehk=70jqZjycH8Q2Hd2P2If9R856G%2bdA2WPti4pHHRiGKOQ%3d&risl=&pid=ImgRaw&r=0 "马头")
+**创作理念**
 
-## 团队介绍
-### 看到这个队名，你可能会觉得“我怎么看不懂？”
+以英雄联盟的一位电竞选手theshy作为主体，以简单黑白简笔画为形式。马到成功，头角峥嵘，大道至简。
+希望屏幕前的你回头望去自己的人生，能够不因辉煌而骄纵，不因落寞而放弃，无怨无悔。
+
+**“春风若有莲花意，可否许我再少年”**	:fire:
+
+##  :pencil2:团队介绍
+### 看到这个队名，你可能会觉得“我怎么看不懂？” :speech_balloon:
 
 马头，即电竞项目英雄联盟中国战队IG担任上单位置的选手**theshy**，因其俊俏的脸庞获此称号。
 
@@ -22,8 +27,9 @@
 
 无可质疑的是，theshy选手拥有上天恩赐的操作与直觉，但可悲的是，这份天赋反而成了他逃避职业根基的借口：
 
-**一名职业选手，一个月打的排位赛局数不如笔者大一翘两节体育课打的多**；
-**一名在华八年的外援，比赛仍然无法实现正常中文沟通**
+·**一名职业选手，一个月打的排位赛局数不如笔者大一翘两节体育课打的多**；
+
+·**一名在华八年的外援，比赛仍然无法实现正常中文沟通** :poop: :poop: :poop:
 
 而这，恰恰是我们需要警惕的地方。在计算机的世界里，每一个符号和字母都举足轻重，每一行代码都是必须严谨对待的零件（在完整的项目开发中更是如此）。
 
@@ -35,8 +41,14 @@
 
 身为未来的工程师，我们比谁都清楚：真正的卓越，源于对每个细节的偏执，对每次承诺的死守。而这，正是以马头为代表的人永远无法理解的。
 
-得出结论，**马头市区**。
+得出结论，**马头市区**。:sparkles:
 
-## 成员介绍
+## :pencil2:成员介绍 :
 
-
+|  成员及学号    | 个人介绍  |
+|  ----  | ----  |
+| 102301330李坤伟  |  |
+| 102301331李鸿洋  | [![foreverr11](https://avatars.githubusercontent.com/u/233679587?v=4)](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/Self-introduction/Hongyang%20Li.md) |
+| 102301332柯鸿斌  | [![wokenday1](https://avatars.githubusercontent.com/u/143888766?v=4)](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/Self-introduction/Hongbin%20Ke.md) |
+| 102301333江文博  | [![Boshsama](https://avatars.githubusercontent.com/u/143994624?v=4)](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/Self-introduction/Wenbo%20Jiang.md) |
+| 112301521翁小燚  | [![Makise_Kurisu](https://avatars.githubusercontent.com/u/183702140?v=4)](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/Self-introduction/Xiaoyi%20Weng.md) |
