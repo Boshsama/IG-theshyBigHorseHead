@@ -47,7 +47,10 @@
 
 |  成员及学号    | 个人介绍  |
 |  ----  | ----  |
-| 102301330李坤伟  |  |
+| 102301312张铭浩  | [!(https://avatars.githubusercontent.com/u/144024999?v=4)](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/Self-introduction/Minghao%20Zhang.md) |
+| 102301314张博凇  | [!(https://avatars.githubusercontent.com/u/144024999?v=4)](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/Self-introduction/Bosong%20Zhang.md) |
+| 102301318杨垚  | [!(https://avatars.githubusercontent.com/u/144024999?v=4)](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/Self-introduction/Yang%20Yao.md) |
+| 102301330李坤伟  | [!(https://avatars.githubusercontent.com/u/144024999?v=4)](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/Self-introduction/Kunwei%20Li.md) |
 | 102301331李鸿洋  | [![foreverr11](https://avatars.githubusercontent.com/u/233679587?v=4)](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/Self-introduction/Hongyang%20Li.md) |
 | 102301332柯鸿斌  | [![wokenday1](https://avatars.githubusercontent.com/u/143888766?v=4)](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/Self-introduction/Hongbin%20Ke.md) |
 | 102301333江文博  | [![Boshsama](https://avatars.githubusercontent.com/u/143994624?v=4)](https://github.com/Boshsama/IG-theshyBigHorseHead/blob/main/Self-introduction/Wenbo%20Jiang.md) |
