@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍔 美食智能助手 - AI Agent</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            height: 85vh;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .meal-list {
+            list-style: none;
+        }
+
+        .meal-item {
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            border-left: 3px solid #f5576c;
+        }
+
+        .meal-time {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .stats {
+            margin-top: 25px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .tools-section {
+            margin-top: 25px;
+        }
+
+        .tool-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #ffe5e5;
+            border-radius: 20px;
+            font-size: 12px;
+            margin: 5px 5px 5px 0;
+            color: #f5576c;
+            font-weight: 600;
+        }
+
+        .chat-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 25px;
+            background: #f8f9fa;
+        }
+
+        .message {
+            display: flex;
+            margin-bottom: 20px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .message.agent .avatar {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            margin-right: 12px;
+        }
+
+        .message.user .avatar {
+            background: #667eea;
+            margin-left: 12px;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 15px 20px;
+            border-radius: 18px;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        .message.agent .message-content {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .message.user .message-content {
+            background: #667eea;
+            color: white;
+        }
+
+        .input-area {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .input-wrapper input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 15px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .input-wrapper input:focus {
+            border-color: #f5576c;
+        }
+
+        .input-wrapper button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .input-wrapper button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(245, 87, 108, 0.4);
+        }
+
+        .voice-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .voice-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .voice-btn.listening {
+            animation: pulse 1.5s infinite;
+            background: #ff4757;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .settings-btn {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background: white;
+            color: #f5576c;
+            border: 2px solid #f5576c;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .settings-btn:hover {
+            background: #f5576c;
+            color: white;
+        }
+
+        .api-status {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            font-size: 13px;
+        }
+
+        .api-status.active {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            .sidebar {
+                order: 2;
+            }
+            .chat-container {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <h2>📝 饮食记录</h2>
+            <ul class="meal-list" id="mealList">
+                <li class="meal-item">
+                    暂无记录，试试说"记录吃了番茄炒蛋"
+                </li>
+            </ul>
+
+            <div class="stats">
+                <h3>📊 今日统计</h3>
+                <div class="stat-item">
+                    <span>🍽️ 摄入热量</span>
+                    <span id="totalCalories">0卡</span>
+                </div>
+                <div class="stat-item">
+                    <span>🏃 运动消耗</span>
+                    <span id="burnedCalories">0卡</span>
+                </div>
+                <div class="stat-item" style="border-top: 1px solid rgba(255,255,255,0.3); padding-top: 10px; margin-top: 5px; font-weight: 700; font-size: 16px;">
+                    <span>💯 净摄入</span>
+                    <span id="netCalories">0卡</span>
+                </div>
+                <div class="stat-item" style="font-size: 13px; opacity: 0.9;">
+                    <span>用餐次数</span>
+                    <span id="mealCount">0次</span>
+                </div>
+                <div class="stat-item" style="font-size: 13px; opacity: 0.9;">
+                    <span>对话次数</span>
+                    <span id="conversationCount">0次</span>
+                </div>
+                <button onclick="clearAllRecords()" style="width: 100%; margin-top: 15px; padding: 10px; background: #ff6b6b; color: white; border: none; border-radius: 10px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.3s;" onmouseover="this.style.background='#ee5a52'" onmouseout="this.style.background='#ff6b6b'">
+                    🗑️ 清空所有记录
+                </button>
+            </div>
+
+            <!-- 查看所有菜品按钮 -->
+            <button onclick="showAllFoodsList()" style="width: 100%; padding: 18px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 15px; cursor: pointer; font-size: 16px; font-weight: 700; margin-top: 15px; margin-bottom: 20px; transition: all 0.3s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); display: flex; align-items: center; justify-content: center; gap: 8px;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)'">
+                <span style="font-size: 20px;">📋</span>
+                <span>查看所有菜品</span>
+                <span style="font-size: 12px; background: rgba(255,255,255,0.3); padding: 2px 8px; border-radius: 10px;">90种</span>
+            </button>
+
+            <div class="tools-section">
+                <h2>🛠️ 可用功能</h2>
+                <div class="tool-badge">美食推荐</div>
+                <div class="tool-badge">菜谱查询</div>
+                <div class="tool-badge">营养分析</div>
+                <div class="tool-badge">饮食记录</div>
+                <div class="tool-badge">热量计算</div>
+                <div class="tool-badge">一周计划</div>
+                <div class="tool-badge">运动记录</div>
+            </div>
+
+            <div class="api-status" id="apiStatus">
+                💡 本地模式<br>点击下方按钮配置AI
+            </div>
+
+            <button class="settings-btn" onclick="openSettings()">⚙️ API设置</button>
+            <button class="settings-btn" onclick="debugAPI()" style="margin-top: 10px; background: #fff3cd; color: #856404; border-color: #ffc107;">🔍 调试API</button>
+        </div>
+
+        <!-- 聊天区域 -->
+        <div class="chat-container">
+            <div class="header">
+                <h1>🍔 美食智能助手</h1>
+                <p>我能帮你推荐美食、查询菜谱、分析营养、记录饮食、计算热量</p>
+            </div>
+
+            <div class="messages" id="messages">
+                <div class="message agent">
+                    <div class="avatar">🍔</div>
+                    <div class="message-content">
+                        你好！我是小食，你的美食智能助手！我可以帮你：<br><br>
+                        <strong>🎯 基础功能：</strong><br>
+                        • 🍽️ 推荐美食（如："推荐早餐"）<br>
+                        • 📖 查询菜谱（如："番茄炒蛋怎么做"）<br>
+                        • 🔬 详细营养分析（如："宫保鸡丁有哪些营养"）<br>
+                        • 📝 记录饮食（如："记录吃了番茄炒蛋"）<br>
+                        • 🔥 计算热量（如："计算300卡路里需要运动多久"）<br><br>
+                        <strong>✨ 高级功能：</strong><br>
+                        • 📅 一周饮食计划（如："生成一周减脂计划"）<br>
+                        • 🏃 运动记录（如："记录运动跑步30分钟"）<br><br>
+                        💬 你也可以直接和我聊天，或者点击🎤按钮使用语音输入！
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-area">
+                <div class="input-wrapper">
+                    <button class="voice-btn" id="voiceBtn" onclick="toggleVoice()" title="点击开始语音输入">🎤</button>
+                    <input 
+                        type="text" 
+                        id="userInput" 
+                        placeholder="输入你的消息或点击🎤使用语音..." 
+                        autocomplete="off"
+                    >
+                    <button onclick="sendMessage()">发送</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- API配置模态框 -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>⚙️ API设置</h2>
+                <button onclick="closeSettings()" style="background: none; border: none; font-size: 28px; cursor: pointer;">&times;</button>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 8px; font-weight: 600;">选择AI提供商</label>
+                <select id="apiProvider" onchange="updateAPIGuide()" style="width: 100%; padding: 12px; border: 2px solid #e9ecef; border-radius: 10px;">
+                    <option value="local">本地模式（无需API）</option>
+                    <option value="deepseek">DeepSeek（推荐）</option>
+                    <option value="openai">OpenAI</option>
+                    <option value="zhipu">智谱AI</option>
+                    <option value="qwen">通义千问</option>
+                </select>
+            </div>
+
+            <div id="apiKeySection" style="display: none;">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">API Key</label>
+                    <input type="password" id="apiKey" placeholder="输入你的API Key" style="width: 100%; padding: 12px; border: 2px solid #e9ecef; border-radius: 10px;">
+                    <div style="font-size: 12px; color: #666; margin-top: 5px;">API Key会保存在浏览器本地，不会上传到服务器</div>
+                </div>
+
+                <div id="apiGuideContent" style="background: #f8f9fa; padding: 15px; border-radius: 10px; font-size: 13px;"></div>
+            </div>
+
+            <button onclick="saveSettings()" style="width: 100%; padding: 15px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; margin-top: 20px;">💾 保存设置</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="agent.js"></script>
+    <script src="voice.js"></script>
+    <script src="ui.js"></script>
+</body>
+</html>
